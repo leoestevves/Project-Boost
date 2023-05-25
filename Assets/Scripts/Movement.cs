@@ -6,6 +6,8 @@ public class Movement : MonoBehaviour
 {
     [SerializeField] float mainThrust = 100f;
     [SerializeField] float rotationThrust = 100f;
+    [SerializeField] AudioClip mainEngine;
+
     Rigidbody rocketRigidbody;
     AudioSource audioSource;
 
@@ -31,7 +33,7 @@ public class Movement : MonoBehaviour
 
             if (!audioSource.isPlaying) //Só toca a música se ela já não estiver tocando
             {
-                audioSource.Play();
+                audioSource.PlayOneShot(mainEngine);
             }            
         }
         else

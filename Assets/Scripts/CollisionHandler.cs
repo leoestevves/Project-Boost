@@ -5,8 +5,23 @@ using UnityEngine.SceneManagement;
 
 public class CollisionHandler : MonoBehaviour
 {
+    [SerializeField] float levelLoadDelay = 1f;
+    [SerializeField] AudioClip success;
+    [SerializeField] AudioClip crash;
+
+    AudioSource audioSource;
+
+    bool isTransitioning = false;
+
+    void Start()
+    {
+        audioSource = GetComponent<AudioSource>();
+    }
+
     void OnCollisionEnter(Collision other)
     {
+        if(isTransitioning) { return; } //Se a transição for verdadeira, ele ignora o resto do void
+
         switch (other.gameObject.tag)
         {
             case "Friendly":
@@ -14,13 +29,35 @@ public class CollisionHandler : MonoBehaviour
                 break;
 
             case "Finish":
-                LoadNextLevel();
+                StartSucessSequence();
                 break;            
 
             default:
-                ReloadLevel();
+                StartCrashSequence();                
                 break;
         }
+    }
+
+    void StartCrashSequence()
+    {
+        isTransitioning = true; //Com isso os sons nao se repetem
+
+        audioSource.Stop(); //Corta todos os sons que estavam ativos
+        audioSource.PlayOneShot(crash);
+
+        GetComponent<Movement>().enabled = false;
+        Invoke("ReloadLevel", levelLoadDelay);
+    }
+
+    void StartSucessSequence()
+    {
+        isTransitioning = true; //Com isso os sons nao se repetem
+
+        audioSource.Stop(); //Corta todos os sons que estavam ativos
+        audioSource.PlayOneShot(success);
+
+        GetComponent<Movement>().enabled = false;
+        Invoke("LoadNextLevel", levelLoadDelay);
     }
 
     void LoadNextLevel()
