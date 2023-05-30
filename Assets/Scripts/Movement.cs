@@ -8,6 +8,10 @@ public class Movement : MonoBehaviour
     [SerializeField] float rotationThrust = 100f;
     [SerializeField] AudioClip mainEngine;
 
+    [SerializeField] ParticleSystem mainEngineParticles;
+    [SerializeField] ParticleSystem leftThrusterParticles;
+    [SerializeField] ParticleSystem rightThrusterParticles;
+
     Rigidbody rocketRigidbody;
     AudioSource audioSource;
 
@@ -34,24 +38,44 @@ public class Movement : MonoBehaviour
             if (!audioSource.isPlaying) //Só toca a música se ela já não estiver tocando
             {
                 audioSource.PlayOneShot(mainEngine);
+            }
+
+            if (!mainEngineParticles.isPlaying)
+            {
+                mainEngineParticles.Play();
             }            
         }
         else
         {
             audioSource.Stop();
+            mainEngineParticles.Stop();
         }
     }
 
     void ProcessRotating()
-    {     
-        if (Input.GetKey(KeyCode.A) && !Input.GetKey(KeyCode.D))
+    {
+        if (Input.GetKey(KeyCode.A) && !Input.GetKey(KeyCode.D)) //Se apertar "A" e "D" ao mesmo tempo, não acontece nada
         {
             ApplyRotation(rotationThrust);
+            if (!rightThrusterParticles.isPlaying)
+            {
+                rightThrusterParticles.Play();
+            }
         }
 
-        if (Input.GetKey(KeyCode.D) && !Input.GetKey(KeyCode.A))
+        else if (Input.GetKey(KeyCode.D) && !Input.GetKey(KeyCode.A)) //Utilizar esse else if me permite utilizar o else da linha 75
         {
             ApplyRotation(-rotationThrust);
+            if (!leftThrusterParticles.isPlaying)
+            {
+                leftThrusterParticles.Play();
+            }
+        }
+
+        else //Para as particulas quando as teclas não estiverem pressionadas
+        {
+            rightThrusterParticles.Stop();
+            leftThrusterParticles.Stop();
         }
     }
 
