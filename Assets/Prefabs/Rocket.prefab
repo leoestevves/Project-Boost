@@ -694,6 +694,7 @@ GameObject:
   - component: {fileID: 4924064803330246988}
   - component: {fileID: 4924064803330246991}
   - component: {fileID: 4924064803330246990}
+  - component: {fileID: 4364670432730604403}
   m_Layer: 0
   m_Name: Rocket
   m_TagString: Untagged
@@ -891,6 +892,18 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &4364670432730604403
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4924064803330246999}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 814cf53fc01e48d488ef520583a177dc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4946656986376461790
 GameObject:
   m_ObjectHideFlags: 0
@@ -1400,7 +1413,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8250610737115426774}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.179, z: -2.95}
+  m_LocalPosition: {x: 0, y: 0.179, z: -2.85}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1419,7 +1432,7 @@ Light:
   m_Type: 0
   m_Shape: 0
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 5.07
+  m_Intensity: 3.97
   m_Range: 2.7
   m_SpotAngle: 29.65
   m_InnerSpotAngle: 21.80208
