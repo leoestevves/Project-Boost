@@ -6,9 +6,15 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Over.unity
+    path: Assets/Scenes/Over 01.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
   - enabled: 1
-    path: Assets/Scenes/Under 1.unity
+    path: Assets/Scenes/Under 01.unity
     guid: 5a49fb57d4937834ea2a5367e4d513bf
+  - enabled: 1
+    path: Assets/Scenes/Gap 01.unity
+    guid: 218725b64b78a264da98f78c6b81706d
+  - enabled: 1
+    path: Assets/Scenes/Obstacles 01.unity
+    guid: 2663cd64c0d16e9489ac7aa7a20cf642
   m_configObjects: {}
