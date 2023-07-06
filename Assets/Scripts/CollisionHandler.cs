@@ -88,16 +88,18 @@ public class CollisionHandler : MonoBehaviour
         SceneManager.LoadScene(currentSceneIndex);
     }
     
+    //Usado para testar o jogo
     void RespondToDebugKeys()
     {
         if (Input.GetKey(KeyCode.L))
         {
             LoadNextLevel();
         }
-
+        /*
         else if (Input.GetKey(KeyCode.C))
         {
             collisionDisabled = !collisionDisabled; // liga ou desliga (true or false) o collisionDisabled
-        }        
+        }
+        */
     }
 }
